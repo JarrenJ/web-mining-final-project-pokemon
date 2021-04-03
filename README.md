@@ -3,7 +3,6 @@
 
 Demonstrating Cache
 ---
-Current saving to RAM
 
 Upon initial run, my cache will start like this:
 - Default Cache: CacheInfo(hits=0, misses=0, size=0)
