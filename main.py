@@ -1,6 +1,5 @@
 import pokepy
-# import pokebase as pb
-# from pokebase import cache
+from variables import CACHE_PATCH
 
 def createPokemonTypeDict(names, pokemon, types):
     """Append multiple values to a key in the given dictionary"""
@@ -67,11 +66,15 @@ def countTypes(generation):
 
 
 if __name__ == "__main__":
+    """
+    CACHE_PATH is stored in a separate file (not pushed to git).
+    cache_location should point to the absolute path of the local cache directory.
+    """
+    client_disk_cache = pokepy.V2Client(cache='in_disk', cache_location=CACHE_PATCH)
 
-    client_disk_cache = pokepy.V2Client(cache='in_disk')
-
+    print(f'Global Cache Location: {client_disk_cache.cache_location()}')
     # Print out cache location
-    print(f'Disk Cache: {client_disk_cache.get_pokemon.cache_location()}')
+    print(f'Cache (get_pokemon): {client_disk_cache.get_pokemon.cache_location()}')
 
     # See how many items cache has at beginning of execution
     print(f'Default Cache: {client_disk_cache.get_pokemon.cache_info()}')
