@@ -15,6 +15,10 @@ def getPokemonTypes(generation, name):
 
 def createGeneration(baseRange, maxRange):
     ids = [i for i in range(baseRange, maxRange)]
+    # for id1 in ids:
+    # print(f'ID: {id1}')
+    # print(f"Pokemon sad-- {client_disk_cache.get_pokemon('sawsbuck').id}")
+    # print(f'Pokemon -- {client_disk_cache.get_pokemon(id1).name}')
     names = [client_disk_cache.get_pokemon(i) for i in range(baseRange, maxRange)]
     generation = zip(ids, names)
     return dict(generation)
@@ -83,6 +87,11 @@ if __name__ == "__main__":
     gen1_range = 152
     gen2_range = 252
     gen3_range = 387
+    gen4_range = 494
+    gen5_range = 650
+    gen6_range = 722
+    gen7_range = 810
+    gen8_range = 899
 
     # Init type_count to hold 0 for all types
     type_count = resetTypes()
@@ -105,6 +114,30 @@ if __name__ == "__main__":
     # Check to make sure we are hitting the cache
     print(f'Cache Info (After Gen3 Creation): {client_disk_cache.get_pokemon.cache_info()}')
 
+    # Create generation 4
+    gen4 = createGeneration(gen3_range, gen4_range)
+
+    # Check to make sure we are hitting the cache
+    print(f'Cache Info (After Gen4 Creation): {client_disk_cache.get_pokemon.cache_info()}')
+
+    # Create generation 5
+    gen5 = createGeneration(gen4_range, gen5_range)
+
+    # Check to make sure we are hitting the cache
+    print(f'Cache Info (After Gen5 Creation): {client_disk_cache.get_pokemon.cache_info()}')
+
+    # Create generation 6
+    gen6 = createGeneration(gen5_range, gen6_range)
+
+    # Check to make sure we are hitting the cache
+    print(f'Cache Info (After Gen6 Creation): {client_disk_cache.get_pokemon.cache_info()}')
+
+    # Create generation 7
+    gen7 = createGeneration(gen6_range, gen7_range)
+
+    # Check to make sure we are hitting the cache
+    print(f'Cache Info (After Gen7 Creation): {client_disk_cache.get_pokemon.cache_info()}')
+
     # Leaving in for now in case I need it later
     # print(f"Example of grabbing specific types from pokemon name (Bulbasaur) : {getPokemonTypes(gen1_complete, 'bulbasaur')}")
 
@@ -116,6 +149,18 @@ if __name__ == "__main__":
 
     # Create types for Gen 3
     gen3_complete = createTypes(gen3, gen2_range, gen3_range)
+
+    # Create types for Gen 4
+    gen4_complete = createTypes(gen4, gen3_range, gen4_range)
+
+    # Create types for Gen 5
+    gen5_complete = createTypes(gen5, gen4_range, gen5_range)
+
+    # Create types for Gen 6
+    gen6_complete = createTypes(gen6, gen5_range, gen6_range)
+
+    # Create types for Gen 7
+    gen7_complete = createTypes(gen7, gen6_range, gen7_range)
 
     # Count Types for Gen 1
     print(f'Gen 1 Types: {countTypes(gen1_complete)}')
@@ -131,6 +176,30 @@ if __name__ == "__main__":
 
     # Count types for Gen 3
     print(f'Gen 3 Types: {countTypes(gen3_complete)}')
+
+    # Reset type_count
+    type_count = resetTypes()
+
+    # Count types for Gen 4
+    print(f'Gen 4 Types: {countTypes(gen4_complete)}')
+
+    # Reset type_count
+    type_count = resetTypes()
+
+    # Count types for Gen 5
+    print(f'Gen 5 Types: {countTypes(gen5_complete)}')
+
+    # Reset type_count
+    type_count = resetTypes()
+
+    # Count types for Gen 6
+    print(f'Gen 6 Types: {countTypes(gen6_complete)}')
+
+    # Reset type_count
+    type_count = resetTypes()
+
+    # Count types for Gen 7
+    print(f'Gen 7 Types: {countTypes(gen7_complete)}')
 
     # Reset type_count
     type_count = resetTypes()
