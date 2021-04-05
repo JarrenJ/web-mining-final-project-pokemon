@@ -138,6 +138,12 @@ if __name__ == "__main__":
     # Check to make sure we are hitting the cache
     print(f'Cache Info (After Gen7 Creation): {client_disk_cache.get_pokemon.cache_info()}')
 
+    # Create generation 8
+    gen8 = createGeneration(gen7_range, gen8_range)
+
+    # Check to make sure we are hitting the cache
+    print(f'Cache Info (After Gen8 Creation): {client_disk_cache.get_pokemon.cache_info()}')
+
     # Leaving in for now in case I need it later
     # print(f"Example of grabbing specific types from pokemon name (Bulbasaur) : {getPokemonTypes(gen1_complete, 'bulbasaur')}")
 
@@ -161,6 +167,9 @@ if __name__ == "__main__":
 
     # Create types for Gen 7
     gen7_complete = createTypes(gen7, gen6_range, gen7_range)
+
+    # Create types for Gen 7
+    gen8_complete = createTypes(gen8, gen7_range, gen8_range)
 
     # Count Types for Gen 1
     print(f'Gen 1 Types: {countTypes(gen1_complete)}')
@@ -200,6 +209,12 @@ if __name__ == "__main__":
 
     # Count types for Gen 7
     print(f'Gen 7 Types: {countTypes(gen7_complete)}')
+
+    # Reset type_count
+    type_count = resetTypes()
+
+    # Count types for Gen 8
+    print(f'Gen 8 Types: {countTypes(gen8_complete)}')
 
     # Reset type_count
     type_count = resetTypes()
