@@ -1,5 +1,8 @@
 import pokepy
+import numpy as np
+import matplotlib.pyplot as plt
 from variables import CACHE_PATCH
+
 
 def createPokemonTypeDict(names, pokemon, types):
     """Append multiple values to a key in the given dictionary"""
@@ -67,6 +70,13 @@ def countTypes(generation):
         if len(generation[pokemon]) > 1:
             type_count[generation[pokemon][1]] += 1
     return type_count
+
+
+def generateTypeGraph(type, marker, marker_color, marker_size, line_color, line_width, label):
+    return plt.plot(['Gen 1', 'Gen 2', 'Gen 3', 'Gen 4', 'Gen 5', 'Gen 6', 'Gen 7', 'Gen 8'],
+             [gen1_types[type], gen2_types[type], gen3_types[type], gen4_types[type],
+              gen5_types[type], gen6_types[type], gen7_types[type], gen8_types[type]],
+             marker=marker, markerfacecolor=marker_color, markersize=marker_size, color=line_color, linewidth=line_width, label=label)
 
 
 if __name__ == "__main__":
@@ -218,3 +228,85 @@ if __name__ == "__main__":
 
     # Reset type_count
     type_count = resetTypes()
+
+    # Store Gen 1 types with count
+    gen1_types = countTypes(gen1_complete)
+    type_count = resetTypes()
+    # Store Gen 1 types with count
+    gen2_types = countTypes(gen2_complete)
+    type_count = resetTypes()
+    # Store Gen 1 types with count
+    gen3_types = countTypes(gen3_complete)
+    type_count = resetTypes()
+    # Store Gen 1 types with count
+    gen4_types = countTypes(gen4_complete)
+    type_count = resetTypes()
+    # Store Gen 1 types with count
+    gen5_types = countTypes(gen5_complete)
+    type_count = resetTypes()
+    # Store Gen 1 types with count
+    gen6_types = countTypes(gen6_complete)
+    type_count = resetTypes()
+    # Store Gen 1 types with count
+    gen7_types = countTypes(gen7_complete)
+    type_count = resetTypes()
+    # Store Gen 1 types with count
+    gen8_types = countTypes(gen8_complete)
+    type_count = resetTypes()
+    # print([poke_type for poke_type in type_count])
+
+    plt_grass = generateTypeGraph('Grass', 'o', 'green', '8', 'green', '2', 'Grass')
+    plt_fire = generateTypeGraph('Fire', 'o', 'orange', '8', 'red', '2', 'Fire')
+    plt_water = generateTypeGraph('Water', 'o', 'blue', '8', 'skyblue', '2', 'Water')
+    plt_poison = generateTypeGraph('Poison', 'o', 'purple', '8', 'pink', '2', 'Poison')
+    # plt_flying = generateTypeGraph('Flying', 'o', 'grey', '8', 'grey', '2', 'Flying')
+    # plt_bug = generateTypeGraph('Bug', 'o', 'yellow', '8', 'green', '2', 'Bug')
+    # plt_normal = generateTypeGraph('Normal', 'o', 'white', '8', 'grey', '2', 'Normal')
+    # plt_ground = generateTypeGraph('Ground', 'o', 'brown', '8', 'brown', '2', 'Ground')
+    # plt_electric = generateTypeGraph('Electric', 'o', 'yellow', '8', 'yellow', '2', 'Electric')
+    # plt_dragon = generateTypeGraph('Dragon', 'o', 'blue', '8', 'grey', '2', 'Dragon')
+    # plt_ice = generateTypeGraph('Ice', 'o', 'skyblue', '8', 'blue', '2', 'Ice')
+    # plt_fairy = generateTypeGraph('Fairy', 'o', 'pink', '8', 'pink', '2', 'Fairy')
+    # plt_fighting = generateTypeGraph('Fighting', 'o', 'brown', '8', 'black', '2', 'Fighting')
+    # plt_steel = generateTypeGraph('Steel', 'o', 'grey', '8', 'grey', '2', 'Steel')
+    # plt_psychic = generateTypeGraph('Psychic', 'o', 'pink', '8', 'purple', '2', 'Psychic')
+    # plt_rock = generateTypeGraph('Rock', 'o', 'black', '8', 'brown', '2', 'Rock')
+    # plt_ghost = generateTypeGraph('Ghost', 'o', 'white', '8', 'grey', '2', 'Ghost')
+    # plt_dark = generateTypeGraph('Dark', 'o', 'black', '8', 'black', '2', 'Dark')
+
+    # plt_gen_1 = plt.plot(['Gen 1', 'Gen 2', 'Gen 3', 'Gen 4', 'Gen 5', 'Gen 6', 'Gen 7', 'Gen 8'], [gen1_types['Grass'], gen2_types['Grass'], gen3_types['Grass'], gen4_types['Grass'], gen5_types['Grass'], gen6_types['Grass'], gen7_types['Grass'], gen8_types['Grass']],
+    #                      marker='o', markerfacecolor='green', markersize=8, color='green', linewidth=2, label='Grass')
+
+    # plt_gen_1 = plt.plot([poke_type for poke_type in gen1_types], [gen1_types[count] for count in gen1_types],
+    #                      marker='o', markerfacecolor='blue', markersize=8, color='skyblue', linewidth=2, label='Gen 1')
+    # plt_gen_2 = plt.plot([poke_type for poke_type in gen2_types], [gen2_types[count] for count in gen2_types],
+    #                      marker='o', markerfacecolor='red', markersize=8, color='red', linewidth=2, label='Gen 2')
+    # plt_gen_3 = plt.plot([poke_type for poke_type in gen3_types], [gen3_types[count] for count in gen3_types],
+    #                      marker='o', markerfacecolor='black', markersize=8, color='black', linewidth=2, label='Gen 3')
+    # plt_gen_4 = plt.plot([poke_type for poke_type in gen4_types], [gen4_types[count] for count in gen4_types],
+    #                      marker='o', markerfacecolor='yellow', markersize=8, color='yellow', linewidth=2, label='Gen 4')
+    # plt_gen_5 = plt.plot([poke_type for poke_type in gen5_types], [gen5_types[count] for count in gen5_types],
+    #                      marker='o', markerfacecolor='green', markersize=8, color='green', linewidth=2, label='Gen 5')
+    # plt_gen_6 = plt.plot([poke_type for poke_type in gen6_types], [gen6_types[count] for count in gen6_types],
+    #                      marker='o', markerfacecolor='pink', markersize=8, color='purple', linewidth=2, label='Gen 6')
+    # plt_gen_7 = plt.plot([poke_type for poke_type in gen7_types], [gen7_types[count] for count in gen7_types],
+    #                      marker='o', markerfacecolor='purple', markersize=8, color='pink', linewidth=2, label='Gen 7')
+    # plt_gen_8 = plt.plot([poke_type for poke_type in gen8_types], [gen8_types[count] for count in gen8_types],
+    #                      marker='o', markerfacecolor='orange', markersize=8, color='yellow', linewidth=2, label='Gen 8')
+    plt.title('Types (Gen1 - Gen8)')
+    plt.xlabel('Types')
+    plt.ylabel('Pokemon of Type')
+    plt.tick_params(axis='x', which='major', labelsize=5)
+    plt.legend(loc="upper right")
+    plt.savefig('graphs/test4.png')
+
+    # plt_gen_2 = plt.plot(['Gen 1', 'Gen 2', 'Gen 3', 'Gen 4', 'Gen 5', 'Gen 6', 'Gen 7', 'Gen 8'],
+    #                      [gen1_types['Fire'], gen2_types['Fire'], gen3_types['Fire'], gen4_types['Fire'],
+    #                       gen5_types['Fire'], gen6_types['Fire'], gen7_types['Fire'], gen8_types['Fire']],
+    #                      marker='o', markerfacecolor='orange', markersize=8, color='red', linewidth=2, label='Fire')
+    # plt.title('Types (Gen1 - Gen8)')
+    # plt.xlabel('Types')
+    # plt.ylabel('Pokemon of Type')
+    # plt.tick_params(axis='x', which='major', labelsize=5)
+    # plt.legend(loc="upper right")
+    # plt.savefig('test2.png')
