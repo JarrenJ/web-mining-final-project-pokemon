@@ -74,9 +74,10 @@ def countTypes(generation):
 
 def generateTypeGraph(type, marker, marker_color, marker_size, line_color, line_width, label):
     return plt.plot(['Gen 1', 'Gen 2', 'Gen 3', 'Gen 4', 'Gen 5', 'Gen 6', 'Gen 7', 'Gen 8'],
-             [gen1_types[type], gen2_types[type], gen3_types[type], gen4_types[type],
-              gen5_types[type], gen6_types[type], gen7_types[type], gen8_types[type]],
-             marker=marker, markerfacecolor=marker_color, markersize=marker_size, color=line_color, linewidth=line_width, label=label)
+                    [gen1_types[type], gen2_types[type], gen3_types[type], gen4_types[type],
+                     gen5_types[type], gen6_types[type], gen7_types[type], gen8_types[type]],
+                    marker=marker, markerfacecolor=marker_color, markersize=marker_size, color=line_color,
+                    linewidth=line_width, label=label)
 
 
 if __name__ == "__main__":
@@ -259,20 +260,20 @@ if __name__ == "__main__":
     plt_fire = generateTypeGraph('Fire', 'o', 'orange', '8', 'red', '2', 'Fire')
     plt_water = generateTypeGraph('Water', 'o', 'blue', '8', 'skyblue', '2', 'Water')
     plt_poison = generateTypeGraph('Poison', 'o', 'purple', '8', 'pink', '2', 'Poison')
-    # plt_flying = generateTypeGraph('Flying', 'o', 'grey', '8', 'grey', '2', 'Flying')
-    # plt_bug = generateTypeGraph('Bug', 'o', 'yellow', '8', 'green', '2', 'Bug')
-    # plt_normal = generateTypeGraph('Normal', 'o', 'white', '8', 'grey', '2', 'Normal')
-    # plt_ground = generateTypeGraph('Ground', 'o', 'brown', '8', 'brown', '2', 'Ground')
-    # plt_electric = generateTypeGraph('Electric', 'o', 'yellow', '8', 'yellow', '2', 'Electric')
-    # plt_dragon = generateTypeGraph('Dragon', 'o', 'blue', '8', 'grey', '2', 'Dragon')
-    # plt_ice = generateTypeGraph('Ice', 'o', 'skyblue', '8', 'blue', '2', 'Ice')
-    # plt_fairy = generateTypeGraph('Fairy', 'o', 'pink', '8', 'pink', '2', 'Fairy')
-    # plt_fighting = generateTypeGraph('Fighting', 'o', 'brown', '8', 'black', '2', 'Fighting')
-    # plt_steel = generateTypeGraph('Steel', 'o', 'grey', '8', 'grey', '2', 'Steel')
-    # plt_psychic = generateTypeGraph('Psychic', 'o', 'pink', '8', 'purple', '2', 'Psychic')
-    # plt_rock = generateTypeGraph('Rock', 'o', 'black', '8', 'brown', '2', 'Rock')
-    # plt_ghost = generateTypeGraph('Ghost', 'o', 'white', '8', 'grey', '2', 'Ghost')
-    # plt_dark = generateTypeGraph('Dark', 'o', 'black', '8', 'black', '2', 'Dark')
+    plt_flying = generateTypeGraph('Flying', 'o', 'grey', '8', 'grey', '2', 'Flying')
+    plt_bug = generateTypeGraph('Bug', 'o', 'yellow', '8', 'green', '2', 'Bug')
+    plt_normal = generateTypeGraph('Normal', 'o', 'white', '8', 'grey', '2', 'Normal')
+    plt_ground = generateTypeGraph('Ground', 'o', 'brown', '8', 'brown', '2', 'Ground')
+    plt_electric = generateTypeGraph('Electric', 'o', 'yellow', '8', 'yellow', '2', 'Electric')
+    plt_dragon = generateTypeGraph('Dragon', 'o', 'blue', '8', 'grey', '2', 'Dragon')
+    plt_ice = generateTypeGraph('Ice', 'o', 'skyblue', '8', 'blue', '2', 'Ice')
+    plt_fairy = generateTypeGraph('Fairy', 'o', 'pink', '8', 'pink', '2', 'Fairy')
+    plt_fighting = generateTypeGraph('Fighting', 'o', 'brown', '8', 'black', '2', 'Fighting')
+    plt_steel = generateTypeGraph('Steel', 'o', 'grey', '8', 'grey', '2', 'Steel')
+    plt_psychic = generateTypeGraph('Psychic', 'o', 'pink', '8', 'purple', '2', 'Psychic')
+    plt_rock = generateTypeGraph('Rock', 'o', 'black', '8', 'brown', '2', 'Rock')
+    plt_ghost = generateTypeGraph('Ghost', 'o', 'white', '8', 'grey', '2', 'Ghost')
+    plt_dark = generateTypeGraph('Dark', 'o', 'black', '8', 'black', '2', 'Dark')
 
     # plt_gen_1 = plt.plot(['Gen 1', 'Gen 2', 'Gen 3', 'Gen 4', 'Gen 5', 'Gen 6', 'Gen 7', 'Gen 8'], [gen1_types['Grass'], gen2_types['Grass'], gen3_types['Grass'], gen4_types['Grass'], gen5_types['Grass'], gen6_types['Grass'], gen7_types['Grass'], gen8_types['Grass']],
     #                      marker='o', markerfacecolor='green', markersize=8, color='green', linewidth=2, label='Grass')
@@ -298,7 +299,67 @@ if __name__ == "__main__":
     plt.ylabel('Pokemon of Type')
     plt.tick_params(axis='x', which='major', labelsize=5)
     plt.legend(loc="upper right")
-    plt.savefig('graphs/test4.png')
+    plt.savefig('graphs/test5.png')
+
+    # 'Grass': 0,
+    # 'Fire': 0,
+    # 'Water': 0,
+    # 'Poison': 0,
+    # 'Flying': 0,
+    # 'Bug': 0,
+    # 'Normal': 0,
+    # 'Ground': 0,
+    # 'Electric': 0,
+    # 'Dragon': 0,
+    # 'Ice': 0,
+    # 'Fairy': 0,
+    # 'Fighting': 0,
+    # 'Steel': 0,
+    # 'Psychic': 0,
+    # 'Rock': 0,
+    # 'Ghost': 0,
+    # 'Dark': 0,
+
+    # Pie chart labels
+    labels = ['Grass', 'Fire', 'Water', 'Poison', 'Flying', 'Bug', 'Normal', 'Ground', 'Electric', 'Dragon', 'Ice',
+              'Fairy', 'Fighting', 'Steel', 'Psychic', 'Rock', 'Ghost', 'Dark']
+
+
+    def generatePie(gen):
+        return [gen['Grass'], gen['Fire'], gen['Water'], gen['Poison'], gen['Flying'],
+                gen['Bug'], gen['Normal'], gen['Ground'], gen['Electric'],
+                gen['Dragon'], gen['Ice'], gen['Fairy'], gen['Fighting'], gen['Steel'],
+                gen['Psychic'], gen['Rock'], gen['Ghost'], gen['Dark']]
+
+    sizes = generatePie(gen8_types)
+
+    # sizes = [gen1_types['Grass'], gen1_types['Fire'], gen1_types['Water'], gen1_types['Poison'], gen1_types['Flying'],
+    #          gen1_types['Bug'], gen1_types['Normal'], gen1_types['Ground'], gen1_types['Electric'],
+    #          gen1_types['Dragon'], gen1_types['Ice'], gen1_types['Fairy'], gen1_types['Fighting'], gen1_types['Steel'],
+    #          gen1_types['Psychic'], gen1_types['Rock'], gen1_types['Ghost']]
+    explode = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0, 0, 0, 0)
+
+    # Colors (hexadecimals for types of pokemon in same order as labels above)
+    colors = ['#7AC74C', '#EE8130', '#6390F0', '#A33EA1', '#A98FF3', '#A6B91A', '#A8A77A', '#E2BF65', '#F7D02C',
+              '#6F35FC', '#96D9D6', '#D685AD', '#C22E28', '#B7B7CE', '#F95587', '#B6A136', '#735797', '#705746']
+
+    fig1, ax1 = plt.subplots()
+
+    # Insetad of using a %, show actual number in pie chart
+    total = sum(sizes) / 100.0
+    autopct = lambda x: "%d" % round(x * total)
+
+    ax1.pie(sizes, explode=explode, labels=labels, colors=colors, autopct=autopct, startangle=90, pctdistance=0.85)
+
+    # draw circle to mimic donut shaped pie chart
+    circle = plt.Circle((0, 0), 0.70, fc='white')
+    fig = plt.gcf()
+    fig.gca().add_artist(circle)
+
+    plt.title('Gen 8 Types')
+    ax1.axis('equal')  # Pie is drawn as a circle.
+    plt.tight_layout()
+    plt.savefig('graphs/gen8Types.png')
 
     # plt_gen_2 = plt.plot(['Gen 1', 'Gen 2', 'Gen 3', 'Gen 4', 'Gen 5', 'Gen 6', 'Gen 7', 'Gen 8'],
     #                      [gen1_types['Fire'], gen2_types['Fire'], gen3_types['Fire'], gen4_types['Fire'],
