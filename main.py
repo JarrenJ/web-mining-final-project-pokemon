@@ -2,6 +2,7 @@ import pokepy
 import numpy as np
 import matplotlib.pyplot as plt
 from variables import CACHE_PATCH
+import plotly.graph_objs as go
 
 
 def createPokemonTypeDict(names, pokemon, types):
@@ -18,10 +19,6 @@ def getPokemonTypes(generation, name):
 
 def createGeneration(baseRange, maxRange):
     ids = [i for i in range(baseRange, maxRange)]
-    # for id1 in ids:
-    # print(f'ID: {id1}')
-    # print(f"Pokemon sad-- {client_disk_cache.get_pokemon('sawsbuck').id}")
-    # print(f'Pokemon -- {client_disk_cache.get_pokemon(id1).name}')
     names = [client_disk_cache.get_pokemon(i) for i in range(baseRange, maxRange)]
     generation = zip(ids, names)
     return dict(generation)
@@ -155,9 +152,6 @@ if __name__ == "__main__":
     # Check to make sure we are hitting the cache
     print(f'Cache Info (After Gen8 Creation): {client_disk_cache.get_pokemon.cache_info()}')
 
-    # Leaving in for now in case I need it later
-    # print(f"Example of grabbing specific types from pokemon name (Bulbasaur) : {getPokemonTypes(gen1_complete, 'bulbasaur')}")
-
     # Create types for Gen 1
     gen1_complete = createTypes(gen1, 1, gen1_range)
 
@@ -182,101 +176,115 @@ if __name__ == "__main__":
     # Create types for Gen 7
     gen8_complete = createTypes(gen8, gen7_range, gen8_range)
 
+    # Grab specific pokemon from generation by name, to make sure an entry for it exists
+
+    # print('=========')
+    # print(f"Example of grabbing specific types from pokemon name (tsareena) : {getPokemonTypes(gen6_complete, 'tsareena')}")
+    # print('=========')
+
+# Below code used to print results of the count of each Gen
+
     # Count Types for Gen 1
-    print(f'Gen 1 Types: {countTypes(gen1_complete)}')
+    # print(f'Gen 1 Types: {countTypes(gen1_complete)}')
 
     # Reset type_count
-    type_count = resetTypes()
+    # type_count = resetTypes()
 
     # Count Types for Gen 2
-    print(f'Gen 2 Types: {countTypes(gen2_complete)}')
+    # print(f'Gen 2 Types: {countTypes(gen2_complete)}')
 
     # Reset type_count
-    type_count = resetTypes()
+    # type_count = resetTypes()
 
     # Count types for Gen 3
-    print(f'Gen 3 Types: {countTypes(gen3_complete)}')
+    # print(f'Gen 3 Types: {countTypes(gen3_complete)}')
 
     # Reset type_count
-    type_count = resetTypes()
+    # type_count = resetTypes()
 
     # Count types for Gen 4
-    print(f'Gen 4 Types: {countTypes(gen4_complete)}')
+    # print(f'Gen 4 Types: {countTypes(gen4_complete)}')
 
     # Reset type_count
-    type_count = resetTypes()
+    # type_count = resetTypes()
 
     # Count types for Gen 5
-    print(f'Gen 5 Types: {countTypes(gen5_complete)}')
+    # print(f'Gen 5 Types: {countTypes(gen5_complete)}')
 
     # Reset type_count
-    type_count = resetTypes()
+    # type_count = resetTypes()
 
     # Count types for Gen 6
-    print(f'Gen 6 Types: {countTypes(gen6_complete)}')
+    # print(f'Gen 6 Types: {countTypes(gen6_complete)}')
 
     # Reset type_count
-    type_count = resetTypes()
+    # type_count = resetTypes()
 
     # Count types for Gen 7
-    print(f'Gen 7 Types: {countTypes(gen7_complete)}')
+    # print(f'Gen 7 Types: {countTypes(gen7_complete)}')
 
     # Reset type_count
-    type_count = resetTypes()
+    # type_count = resetTypes()
 
     # Count types for Gen 8
-    print(f'Gen 8 Types: {countTypes(gen8_complete)}')
+    # print(f'Gen 8 Types: {countTypes(gen8_complete)}')
 
     # Reset type_count
-    type_count = resetTypes()
+    # type_count = resetTypes()
+
+# Above code used to print results of the count of each Gen
 
     # Store Gen 1 types with count
     gen1_types = countTypes(gen1_complete)
     type_count = resetTypes()
-    # Store Gen 1 types with count
+    # Store Gen 2 types with count
     gen2_types = countTypes(gen2_complete)
     type_count = resetTypes()
-    # Store Gen 1 types with count
+    # Store Gen 3 types with count
     gen3_types = countTypes(gen3_complete)
     type_count = resetTypes()
-    # Store Gen 1 types with count
+    # Store Gen 4 types with count
     gen4_types = countTypes(gen4_complete)
     type_count = resetTypes()
-    # Store Gen 1 types with count
+    # Store Gen 5 types with count
     gen5_types = countTypes(gen5_complete)
     type_count = resetTypes()
-    # Store Gen 1 types with count
+    # Store Gen 6 types with count
     gen6_types = countTypes(gen6_complete)
     type_count = resetTypes()
-    # Store Gen 1 types with count
+    # Store Gen 7 types with count
     gen7_types = countTypes(gen7_complete)
     type_count = resetTypes()
-    # Store Gen 1 types with count
+    # Store Gen 8 types with count
     gen8_types = countTypes(gen8_complete)
     type_count = resetTypes()
-    # print([poke_type for poke_type in type_count])
 
-    plt_grass = generateTypeGraph('Grass', 'o', 'green', '8', 'green', '2', 'Grass')
-    plt_fire = generateTypeGraph('Fire', 'o', 'orange', '8', 'red', '2', 'Fire')
-    plt_water = generateTypeGraph('Water', 'o', 'blue', '8', 'skyblue', '2', 'Water')
-    plt_poison = generateTypeGraph('Poison', 'o', 'purple', '8', 'pink', '2', 'Poison')
-    plt_flying = generateTypeGraph('Flying', 'o', 'grey', '8', 'grey', '2', 'Flying')
-    plt_bug = generateTypeGraph('Bug', 'o', 'yellow', '8', 'green', '2', 'Bug')
-    plt_normal = generateTypeGraph('Normal', 'o', 'white', '8', 'grey', '2', 'Normal')
-    plt_ground = generateTypeGraph('Ground', 'o', 'brown', '8', 'brown', '2', 'Ground')
-    plt_electric = generateTypeGraph('Electric', 'o', 'yellow', '8', 'yellow', '2', 'Electric')
-    plt_dragon = generateTypeGraph('Dragon', 'o', 'blue', '8', 'grey', '2', 'Dragon')
-    plt_ice = generateTypeGraph('Ice', 'o', 'skyblue', '8', 'blue', '2', 'Ice')
-    plt_fairy = generateTypeGraph('Fairy', 'o', 'pink', '8', 'pink', '2', 'Fairy')
-    plt_fighting = generateTypeGraph('Fighting', 'o', 'brown', '8', 'black', '2', 'Fighting')
-    plt_steel = generateTypeGraph('Steel', 'o', 'grey', '8', 'grey', '2', 'Steel')
-    plt_psychic = generateTypeGraph('Psychic', 'o', 'pink', '8', 'purple', '2', 'Psychic')
-    plt_rock = generateTypeGraph('Rock', 'o', 'black', '8', 'brown', '2', 'Rock')
-    plt_ghost = generateTypeGraph('Ghost', 'o', 'white', '8', 'grey', '2', 'Ghost')
-    plt_dark = generateTypeGraph('Dark', 'o', 'black', '8', 'black', '2', 'Dark')
+    '''
+        Old code for generating specific line graphs.
+    '''
 
-    # plt_gen_1 = plt.plot(['Gen 1', 'Gen 2', 'Gen 3', 'Gen 4', 'Gen 5', 'Gen 6', 'Gen 7', 'Gen 8'], [gen1_types['Grass'], gen2_types['Grass'], gen3_types['Grass'], gen4_types['Grass'], gen5_types['Grass'], gen6_types['Grass'], gen7_types['Grass'], gen8_types['Grass']],
-    #                      marker='o', markerfacecolor='green', markersize=8, color='green', linewidth=2, label='Grass')
+    # plt_grass = generateTypeGraph('Grass', 'o', 'green', '8', 'green', '2', 'Grass')
+    # plt_fire = generateTypeGraph('Fire', 'o', 'orange', '8', 'red', '2', 'Fire')
+    # plt_water = generateTypeGraph('Water', 'o', 'blue', '8', 'skyblue', '2', 'Water')
+    # plt_poison = generateTypeGraph('Poison', 'o', 'purple', '8', 'pink', '2', 'Poison')
+    # plt_flying = generateTypeGraph('Flying', 'o', 'grey', '8', 'grey', '2', 'Flying')
+    # plt_bug = generateTypeGraph('Bug', 'o', 'yellow', '8', 'green', '2', 'Bug')
+    # plt_normal = generateTypeGraph('Normal', 'o', 'white', '8', 'grey', '2', 'Normal')
+    # plt_ground = generateTypeGraph('Ground', 'o', 'brown', '8', 'brown', '2', 'Ground')
+    # plt_electric = generateTypeGraph('Electric', 'o', 'yellow', '8', 'yellow', '2', 'Electric')
+    # plt_dragon = generateTypeGraph('Dragon', 'o', 'blue', '8', 'grey', '2', 'Dragon')
+    # plt_ice = generateTypeGraph('Ice', 'o', 'skyblue', '8', 'blue', '2', 'Ice')
+    # plt_fairy = generateTypeGraph('Fairy', 'o', 'pink', '8', 'pink', '2', 'Fairy')
+    # plt_fighting = generateTypeGraph('Fighting', 'o', 'brown', '8', 'black', '2', 'Fighting')
+    # plt_steel = generateTypeGraph('Steel', 'o', 'grey', '8', 'grey', '2', 'Steel')
+    # plt_psychic = generateTypeGraph('Psychic', 'o', 'pink', '8', 'purple', '2', 'Psychic')
+    # plt_rock = generateTypeGraph('Rock', 'o', 'black', '8', 'brown', '2', 'Rock')
+    # plt_ghost = generateTypeGraph('Ghost', 'o', 'white', '8', 'grey', '2', 'Ghost')
+    # plt_dark = generateTypeGraph('Dark', 'o', 'black', '8', 'black', '2', 'Dark')
+
+    '''
+        Old way of creating line graphs (cluttered, so I scrapped it)
+    '''
 
     # plt_gen_1 = plt.plot([poke_type for poke_type in gen1_types], [gen1_types[count] for count in gen1_types],
     #                      marker='o', markerfacecolor='blue', markersize=8, color='skyblue', linewidth=2, label='Gen 1')
@@ -294,31 +302,12 @@ if __name__ == "__main__":
     #                      marker='o', markerfacecolor='purple', markersize=8, color='pink', linewidth=2, label='Gen 7')
     # plt_gen_8 = plt.plot([poke_type for poke_type in gen8_types], [gen8_types[count] for count in gen8_types],
     #                      marker='o', markerfacecolor='orange', markersize=8, color='yellow', linewidth=2, label='Gen 8')
-    plt.title('Types (Gen1 - Gen8)')
-    plt.xlabel('Types')
-    plt.ylabel('Pokemon of Type')
-    plt.tick_params(axis='x', which='major', labelsize=5)
-    plt.legend(loc="upper right")
-    plt.savefig('graphs/test5.png')
-
-    # 'Grass': 0,
-    # 'Fire': 0,
-    # 'Water': 0,
-    # 'Poison': 0,
-    # 'Flying': 0,
-    # 'Bug': 0,
-    # 'Normal': 0,
-    # 'Ground': 0,
-    # 'Electric': 0,
-    # 'Dragon': 0,
-    # 'Ice': 0,
-    # 'Fairy': 0,
-    # 'Fighting': 0,
-    # 'Steel': 0,
-    # 'Psychic': 0,
-    # 'Rock': 0,
-    # 'Ghost': 0,
-    # 'Dark': 0,
+    # plt.title('Types (Gen1 - Gen8)')
+    # plt.xlabel('Types')
+    # plt.ylabel('Pokemon of Type')
+    # plt.tick_params(axis='x', which='major', labelsize=5)
+    # plt.legend(loc="upper right")
+    # plt.savefig('graphs/test5.png')
 
     # Pie chart labels
     labels = ['Grass', 'Fire', 'Water', 'Poison', 'Flying', 'Bug', 'Normal', 'Ground', 'Electric', 'Dragon', 'Ice',
@@ -331,13 +320,72 @@ if __name__ == "__main__":
                 gen['Dragon'], gen['Ice'], gen['Fairy'], gen['Fighting'], gen['Steel'],
                 gen['Psychic'], gen['Rock'], gen['Ghost'], gen['Dark']]
 
-    sizes = generatePie(gen8_types)
+
+    test1 = countTypes(gen1_complete)
+    type_count = resetTypes()
+    test2 = countTypes(gen2_complete)
+    type_count = resetTypes()
+    test3 = countTypes(gen3_complete)
+    type_count = resetTypes()
+    test4 = countTypes(gen4_complete)
+    type_count = resetTypes()
+    test5 = countTypes(gen5_complete)
+    type_count = resetTypes()
+    test6 = countTypes(gen6_complete)
+    type_count = resetTypes()
+    test7 = countTypes(gen7_complete)
+    type_count = resetTypes()
+    test8 = countTypes(gen8_complete)
+
+    testList = []
+    testList2 = []
+    testList3 = []
+    testList4 = []
+    testList5 = []
+    testList6 = []
+    testList7 = []
+    testList8 = []
+    finalList = []
+
+    for key, value in test1.items():
+        testList.append(value)
+
+    for key, value in test2.items():
+        testList2.append(value)
+
+    for key, value in test3.items():
+        testList3.append(value)
+
+    for key, value in test4.items():
+        testList4.append(value)
+
+    for key, value in test5.items():
+        testList5.append(value)
+
+    for key, value in test6.items():
+        testList6.append(value)
+
+    for key, value in test7.items():
+        testList7.append(value)
+
+    for key, value in test8.items():
+        testList8.append(value)
+
+    # Iterate through each type2
+    for i in range(0, 18):
+        finalList.append(
+            testList[i] + testList2[i] + testList3[i] + testList4[i] + testList5[i] + testList6[i] + testList7[i] +
+            testList8[i])
+
+    # sizes = generatePie(finalList)
+
+    sizes = finalList
 
     # sizes = [gen1_types['Grass'], gen1_types['Fire'], gen1_types['Water'], gen1_types['Poison'], gen1_types['Flying'],
     #          gen1_types['Bug'], gen1_types['Normal'], gen1_types['Ground'], gen1_types['Electric'],
     #          gen1_types['Dragon'], gen1_types['Ice'], gen1_types['Fairy'], gen1_types['Fighting'], gen1_types['Steel'],
     #          gen1_types['Psychic'], gen1_types['Rock'], gen1_types['Ghost']]
-    explode = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0, 0, 0, 0)
+    explode = (0, 0, 0.2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0) # Chose which piece of pie gets exploded.
 
     # Colors (hexadecimals for types of pokemon in same order as labels above)
     colors = ['#7AC74C', '#EE8130', '#6390F0', '#A33EA1', '#A98FF3', '#A6B91A', '#A8A77A', '#E2BF65', '#F7D02C',
@@ -345,7 +393,7 @@ if __name__ == "__main__":
 
     fig1, ax1 = plt.subplots()
 
-    # Insetad of using a %, show actual number in pie chart
+    # Instead of using a %, show actual number in pie chart
     total = sum(sizes) / 100.0
     autopct = lambda x: "%d" % round(x * total)
 
@@ -356,18 +404,110 @@ if __name__ == "__main__":
     fig = plt.gcf()
     fig.gca().add_artist(circle)
 
-    plt.title('Gen 8 Types')
+    plt.title('Pokemon Types (Gen 1 - Gen 8)')
     ax1.axis('equal')  # Pie is drawn as a circle.
     plt.tight_layout()
-    plt.savefig('graphs/gen8Types.png')
+    plt.savefig('graphs/allTypesPie3.svg', transparent=True)
 
-    # plt_gen_2 = plt.plot(['Gen 1', 'Gen 2', 'Gen 3', 'Gen 4', 'Gen 5', 'Gen 6', 'Gen 7', 'Gen 8'],
-    #                      [gen1_types['Fire'], gen2_types['Fire'], gen3_types['Fire'], gen4_types['Fire'],
-    #                       gen5_types['Fire'], gen6_types['Fire'], gen7_types['Fire'], gen8_types['Fire']],
-    #                      marker='o', markerfacecolor='orange', markersize=8, color='red', linewidth=2, label='Fire')
+    '''
+        Commented code below was to create aggregated line graph (looked way to cluttered)
+    '''
+
     # plt.title('Types (Gen1 - Gen8)')
     # plt.xlabel('Types')
     # plt.ylabel('Pokemon of Type')
     # plt.tick_params(axis='x', which='major', labelsize=5)
     # plt.legend(loc="upper right")
     # plt.savefig('test2.png')
+
+'''
+    Old code for generating bar graph beneath here
+'''
+
+# type_names = ['Grass', 'Fire', 'Water', 'Poison', 'Flying', 'Bug', 'Normal', 'Ground', 'Electric', 'Dragon', 'Ice',
+#               'Fairy', 'Fighting', 'Steel', 'Psychic', 'Rock', 'Ghost', 'Dark']
+
+# test1 = countTypes(gen1_complete)
+# type_count = resetTypes()
+# test2 = countTypes(gen2_complete)
+# type_count = resetTypes()
+# test3 = countTypes(gen3_complete)
+# type_count = resetTypes()
+# test4 = countTypes(gen4_complete)
+# type_count = resetTypes()
+# test5 = countTypes(gen5_complete)
+# type_count = resetTypes()
+# test6 = countTypes(gen6_complete)
+# type_count = resetTypes()
+# test7 = countTypes(gen7_complete)
+# type_count = resetTypes()
+# test8 = countTypes(gen8_complete)
+#
+# testList = []
+# testList2 = []
+# testList3 = []
+# testList4 = []
+# testList5 = []
+# testList6 = []
+# testList7 = []
+# testList8 = []
+# finalList = []
+#
+# for key, value in test1.items():
+#     testList.append(value)
+#
+# for key, value in test2.items():
+#     testList2.append(value)
+#
+# for key, value in test3.items():
+#     testList3.append(value)
+#
+# for key, value in test4.items():
+#     testList4.append(value)
+#
+# for key, value in test5.items():
+#     testList5.append(value)
+#
+# for key, value in test6.items():
+#     testList6.append(value)
+#
+# for key, value in test7.items():
+#     testList7.append(value)
+#
+# for key, value in test8.items():
+#     testList8.append(value)
+#
+# for i in range(0, 18):
+#     finalList.append(
+#         testList[i] + testList2[i] + testList3[i] + testList4[i] + testList5[i] + testList6[i] + testList7[i] +
+#         testList8[i])
+
+# Setup Bar Graph
+
+# data = go.Bar(
+#     x=type_names,
+#     y=finalList,
+#     marker=dict(
+#         color=colors
+#     ),
+#     name="{}".format(type_names)
+# )
+#
+# layout = go.Layout(
+#     title='Pokemon Types (Gen 1 - Gen 8)',
+#     xaxis=dict(
+#         title='Types'
+#     ),
+#     yaxis=dict(
+#         title='Number of Pokemon'
+#     ),
+#     paper_bgcolor='rgba(0,0,0,0)',
+#     plot_bgcolor='rgba(0,0,0,0)',
+#     font={
+#         "color": "black"
+#     }
+#     )
+#
+# fig = go.Figure(data=[data], layout=layout)
+#
+# fig.write_image("graphs/allTypesT.svg")
