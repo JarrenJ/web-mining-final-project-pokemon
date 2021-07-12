@@ -14,11 +14,11 @@ Upon initial run, my cache will start like this:
     - Cache Info: CacheInfo(hits=151, misses=151, size=151)
         - This shows that I used all 151 item in my cache, `hits=151`. The size didnt get any bigger because I was not calling an new remote resources, but rather using my locally cached resources.
     
-Milestone 4
+Milestone 4 (Data Manipulation)
 ---
 An example of how I am manipulating my data:
 
-I start by grabbing all Pokémon in a generation based on their respective ID's and then dril down into the `type` object associated with the pokemon from the api and create a dictrionary with the following structure.
+I start by grabbing all Pokémon in a generation based on their respective ID's and then drill down into the `type` object associated with the pokemon from the api and create a dictionary with the following structure.
 ```python
 {
     'bulbasaur': ['Grass', 'Poison'], 
@@ -37,3 +37,9 @@ Results
 ---
 
 ![results](https://github.com/jarrenj/final-project/blob/main/result/finalResults.png?raw=true)
+
+To Do
+---
+* Code needs to be cleaned up
+* Add more comments
+* Planning to convert to a jupyter notebook
