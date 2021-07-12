@@ -32,3 +32,8 @@ Using this, structure I can grab the types and count them all up, and create a n
 ```python
 {'Grass': 14, 'Fire': 12, 'Water': 32, 'Poison': 33, 'Flying': 19, 'Bug': 12, 'Normal': 22, 'Ground': 14, 'Electric': 9, 'Dragon': 3, 'Ice': 5, 'Fairy': 5, 'Fighting': 8, 'Steel': 2, 'Psychic': 14, 'Rock': 11, 'Ghost': 3, 'Dark': 0}
 ```
+
+Results
+---
+
+![results](https://github.com/jarrenj/final-project/blob/main/result/finalResults.png?raw=true)
